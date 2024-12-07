@@ -4,6 +4,8 @@
 
 CrowdCube is a platform designed to revolutionize investment by connecting businesses and investors. Our website provides an easy-to-use interface for businesses seeking funding and for investors looking to support innovative ideas and projects. CrowdCube is all about empowering startups, entrepreneurs, and small businesses with the funding they need while offering investors a chance to be part of exciting ventures.
 
+<img src='../assests/Screenshot_1.jpg'>
+
 ## Key Features
 
 - **Add Campaign**  
