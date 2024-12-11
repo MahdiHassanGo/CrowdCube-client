@@ -8,15 +8,15 @@ const Footer = () => {
         <Link to="/allcampaigns" className="link link-hover text-white">
          All Campaigns
         </Link>
+        <Link to="/mycampaigns" className="link link-hover text-white">
+         My Campaigns
+        </Link>
+        <Link to="/mydonation" className="link link-hover text-white">
+       My Donation
+        </Link>
       </nav>
       <nav>
-        <h6 className="footer-title text-white">Company</h6>
-        <Link to="/about" className="link link-hover text-white">
-          About us
-        </Link>
-        <Link to="/howtohelp" className="link link-hover text-white">
-          Contact
-        </Link>
+       
       </nav>
       <nav>
         <h6 className="footer-title text-white">Social</h6>

@@ -1,4 +1,10 @@
 import "aos/dist/aos.css";
+import Aos from "aos";
+import { useEffect ,useContext, useState } from "react";
+import { AuthContext } from './../provider/AuthProvider';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   useEffect(() => {
