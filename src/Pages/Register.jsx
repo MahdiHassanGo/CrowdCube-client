@@ -92,7 +92,7 @@ const Register = () => {
     
     <div>
         <ToastContainer position="top-center" />
-      <div className="hero   min-h-screen flex items-center justify-center" data-aos="fade-up">
+      <div className="hero   min-h-screen flex items-center justify-center mt-10" data-aos="fade-up">
         <div className="hero-content flex-col  gap-6 w-full px-4 sm:px-8 md:px-16 lg:px-0">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Register now!</h1>
