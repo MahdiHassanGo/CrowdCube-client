@@ -2,22 +2,25 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { RiRadioButtonLine } from "react-icons/ri";
 import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { AuthContext } from "../provider/AuthProvider";
-import Donation from "../Donation.json"
+import Donation from "../Donation.json";
 import Lottie from "lottie-react";
+import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
 
 const MyDonation = () => {
   const [donations, setDonations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { user } = useContext(AuthContext);
+  const [sortOrder, setSortOrder] = useState("asc");
+
   useEffect(() => {
-    document.title = "My Donation| CrowdCube";
+    document.title = "My Donation | CrowdCube";
   }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -43,10 +46,9 @@ const MyDonation = () => {
         } catch (err) {
           setError("Error fetching donations: " + err.message);
         } finally {
-            setTimeout(()=>{
-                setIsLoading(false);
-              },2000)
-       
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 2000);
         }
       } else {
         setIsLoading(false);
@@ -60,57 +62,96 @@ const MyDonation = () => {
 
   if (error) return <div className="error-message">{error}</div>;
 
+  const sortDonations = () => {
+    const sortedDonations = [...donations].sort((a, b) => {
+      return sortOrder === "asc"
+        ? a.minimumDonationAmount - b.minimumDonationAmount
+        : b.minimumDonationAmount - a.minimumDonationAmount;
+    });
+    setDonations(sortedDonations);
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  };
+
   return (
     <div>
       <Navbar />
       <div
-        className="hero bg-together px-4 md:px-8 min-h-screen flex flex-col mb-10 mt-10"
+        className="hero  px-4 md:px-8 min-h-screen flex flex-col mb-10 mt-10"
         data-aos="fade-up"
       >
         <div className="hero-content text-center">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold text-black mt-10">
-              My Donations   <Lottie className='md:ml-10 w-[30vh]' loop={true} animationData={Donation}></Lottie>
-            </h1>
-          
+            
+              <Lottie
+                className="md:ml-10 w-[30vh]"
+                loop={true}
+                animationData={Donation}
+              />
+           
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row flex-wrap justify-center gap-10 mt-10 pb-10">
-          {donations.length > 0 ? (
-            donations.map((donation) => (
-              <div
-                key={donation._id}
-                className="card card-compact bg-Profile w-full sm:w-80 md:w-96 shadow-xl"
-                data-aos="fade-up"
-              >
-                <figure>
-                  <img
-                    className="w-full h-48 object-cover"
-                    src={
-                      donation?.campaignImage ||
-                      "https://via.placeholder.com/150"
-                    }
-                    alt={donation.title || "donation"}
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title text-center text-white ">
-                    {donation.CampaignTitle}
-                  </h2>
-                  <p className="text-white">Min Amount: {donation.minimumDonationAmount}$</p>
-                  <p className="text-white">Donated: {donation.donatedAmount}$</p>
+        <div className="w-11/12 mx-auto flex-grow">
+          <button
+            onClick={sortDonations}
+            className="mx-auto px-4 py-2 bg-Profile text-white rounded hover:bg-Footer transition-all mb-4 flex items-center justify-center font-charm mt-10"
+          >
+            {sortOrder === "asc" ? (
+              <>
+                <FaLongArrowAltUp className="mr-2" />
+                Sort (Low to High)
+              </>
+            ) : (
+              <>
+                <FaLongArrowAltDown className="mr-2" />
+                Sort (High to Low)
+              </>
+            )}
+          </button>
 
-                  <p className="text-white">User: {donation.username}</p>
-                  <p className="text-white">User Email: {donation.userEmail} </p>
-                 
-                </div>
-            
-              </div>
-            ))
-          ) : (
-            <p>No donations found for your account.</p>
-          )}
+          <div className="overflow-x-auto mt-6">
+            <table className="min-w-full table-auto">
+            <thead>
+  <tr className="bg-gray-200 dark:bg-gray-800">
+    <th></th>
+    <th></th>
+    <th className="p-2 text-black dark:text-white">Campaign Title</th>
+    <th className="p-2 text-black dark:text-white">Donated Amount</th>
+    <th className="p-2 text-black dark:text-white">Minimum Donation Amount</th>
+    <th className="p-2 text-black dark:text-white">Actions</th>
+  </tr>
+</thead>
+              <tbody>
+                {donations.length > 0 ? (
+                  donations.map((donation) => (
+                    <tr key={donation._id}>
+                      <td>
+                        <img
+                          className="w-8 h-8 rounded-full object-cover"
+                          src={donation?.campaignImage || "https://via.placeholder.com/150"}
+                          alt={donation.CampaignTitle || "donation"}
+                        />
+                      </td>
+                      <td>{donation.userEmail}</td>
+                      <td>{donation.username}</td>
+                      <td>{donation.CampaignTitle}</td>
+                      <td>{donation.donatedAmount}</td>
+                      <td>{donation.minimumDonationAmount}</td>
+                      <td className="space-x-4">
+                      
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="7" className="text-center">
+                      No donations found for your account.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <Footer />

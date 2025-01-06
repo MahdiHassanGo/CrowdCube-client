@@ -3,15 +3,23 @@ import React, { useState, useEffect } from "react";
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  
   const handleThemeChange = (e) => {
     const newTheme = e.target.checked ? "dark" : "light";
     setTheme(newTheme);
   };
 
- 
   useEffect(() => {
+    // Update the data-theme attribute for styles (first approach)
     document.documentElement.setAttribute("data-theme", theme);
+
+    // Add or remove the dark class for Tailwind (second approach)
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    // Store the theme in localStorage
     localStorage.setItem("theme", theme);
   }, [theme]);
 

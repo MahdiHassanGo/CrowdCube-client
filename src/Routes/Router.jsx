@@ -49,12 +49,12 @@ const router = createBrowserRouter([
 },
 {
     path:'/campaigndetails/:id',
-    element:<PrivateRoute><CampaignDetails></CampaignDetails></PrivateRoute>,
+    element:<CampaignDetails></CampaignDetails>,
     loader:()=>fetch('https://crowdcube-server-two.vercel.app/campaign')
 },
 {
     path:'/allcampaigns',
-    element:<PrivateRoute><AllCampaigns></AllCampaigns></PrivateRoute>,
+    element:<AllCampaigns></AllCampaigns>,
     loader:()=>fetch('https://crowdcube-server-two.vercel.app/campaign')
 },
 {

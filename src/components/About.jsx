@@ -18,7 +18,7 @@ const About = () => {
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
       }}
-      className="min-h-screen text-white mb-10"
+      className="min-h-screen text-white "
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 space-y-12 ">
         <section className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-12">

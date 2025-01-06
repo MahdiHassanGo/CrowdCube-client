@@ -22,13 +22,15 @@ const MainLayouts = () => {
     <div>
       <Navbar></Navbar>
 
-      <div className="mt-10 w-11/12 mx-auto">
+      <div className="mt-10">
         <MainPage></MainPage>
+
+        <About></About>
         <MainBanner></MainBanner>
 
         <Together></Together>
         <FeaturedVideo></FeaturedVideo>
-        <About></About>
+       
         <Outlet />
       </div>
       <Footer />

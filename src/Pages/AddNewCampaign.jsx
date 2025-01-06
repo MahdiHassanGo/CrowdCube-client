@@ -74,7 +74,7 @@ const AddNewCampaign = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="lg:w-3/4 mx-auto mb-10" data-aos="fade-up">
+      <div className="lg:w-3/4 mx-auto mt-20 mb-10" data-aos="fade-up">
         <div className="text-center p-10">
           <h1 className="text-5xl font-bold">Add campaign!</h1>
         </div>

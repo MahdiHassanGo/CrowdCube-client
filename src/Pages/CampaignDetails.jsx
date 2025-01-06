@@ -148,66 +148,67 @@ const CampaignDetails = () => {
       <Navbar />
 
       <div
-        className="w-full lg:w-8/12 mx-auto py-16 bg-gray-100 mb-10 shadows-lg"
+        className="w-full lg:w-8/12 mx-auto py-16 mb-10 shadow-lg flex flex-col sm:flex-row items-center justify-center"
         data-aos="fade-up"
       >
         <h2 className="text-2xl sm:text-4xl font-bold text-center text-Buttons mb-6">
           {campaign?.title}
         </h2>
-        <div className="flex items-center justify-center mb-6">
+
+        <div className="w-full sm:w-auto mb-6">
           <img
             src={campaign?.photo}
-            alt={campaign?.title}
-            className="w-11/12 lg:w-1/2 object-cover rounded-lg mb-6"
+            alt="Campaign"
+            className="w-[300px] sm:w-[600px] object-cover rounded-lg ml-2  md:ml-5 mt-14"
           />
         </div>
-        <p className="text-black text-lg sm:text-xl px-4 mb-4 font-bold text-center">
-          {campaign?.CampaignTitle}
-        </p>
-        <p className="text-black text-lg sm:text-xl px-4 mb-4 font-light text-center">
-          {campaign?.Description}
-        </p>
-        <p className="text-black text-lg sm:text-xl px-4 mb-4 font-light text-center">
-          Min Amount: {campaign?.MinimumDonationAmount}$
-        </p>
-        <p className="text-black text-lg sm:text-xl px-4 mb-4 font-light text-center">
-          Deadline: {campaign?.Deadline}
-        </p>
-        <p className="text-black text-lg sm:text-xl px-4 mb-4 font-light text-center">
-          Campaign Type: {campaign?.CampaignType}
-        </p>
 
-        <div className="flex flex-col items-center">
-          <label className="text-black text-lg sm:text-xl mb-4">
-            Donation Amount:
-          </label>
-          <input
-            type="text"
-            value={donationAmount}
-            min={campaign?.MinimumDonationAmount || 0}
-            onChange={(e) => setDonationAmount(Number(e.target.value))}
-            className="border rounded px-4 py-2 mb-6"
-          />
-          <div className="flex justify-center gap-10">
-            <Link to="/" className="btn bg-Buttons text-black">
-              Back
-            </Link>
-            <button
-              className={`btn bg-Buttons text-black ${
-                isSubmitting ? "opacity-50" : ""
-              }`}
-              onClick={handleDonate}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Processing..." : "Donate"}
-            </button>
+        <div className="mt-20 w-full sm:w-auto">
+          <p className="text-black text-lg sm:text-xl px-4 mb-4 font-bold text-center">
+            {campaign?.CampaignTitle}
+          </p>
+          <p className="text-black text-lg sm:text-xl px-4 mb-4 font-light text-center">
+            {campaign?.Description}
+          </p>
+          <p className="text-black text-lg sm:text-xl px-4 mb-4 font-light text-center">
+            Min Amount: {campaign?.MinimumDonationAmount}$
+          </p>
+          <p className="text-black text-lg sm:text-xl px-4 mb-4 font-light text-center">
+            Deadline: {campaign?.Deadline}
+          </p>
+          <p className="text-black text-lg sm:text-xl px-4 mb-4 font-light text-center">
+            Campaign Type: {campaign?.CampaignType}
+          </p>
+
+          <div className="flex flex-col items-center">
+            <label className="text-black text-lg sm:text-xl mb-4">Donation Amount:</label>
+            <input
+              type="number"
+              value={donationAmount}
+              min={campaign?.MinimumDonationAmount || 0}
+              onChange={(e) => setDonationAmount(Number(e.target.value))}
+              className="border rounded px-4 py-2 mb-6 w-full sm:w-1/2"
+            />
+
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <Link to="/" className="btn bg-Buttons text-black w-full sm:w-auto text-center">
+                Back
+              </Link>
+              <button
+                className={`btn bg-Buttons text-black w-full sm:w-auto text-center ${isSubmitting ? 'opacity-50' : ''}`}
+                onClick={handleDonate}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Processing..." : "Donate"}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <Footer />
 
-      {/* Modal for minimum donation */}
+
       <Modal
         aria-labelledby="min-donation-modal-title"
         aria-describedby="min-donation-modal-description"
@@ -236,8 +237,7 @@ const CampaignDetails = () => {
               id="min-donation-modal-description"
               sx={{ mt: 2 }}
             >
-              The donation amount must be at least $
-              {campaign?.MinimumDonationAmount}.
+              The donation amount must be at least $ {campaign?.MinimumDonationAmount}.
             </Typography>
             <div className="flex justify-center mt-4">
               <button
@@ -251,7 +251,6 @@ const CampaignDetails = () => {
         </Fade>
       </Modal>
 
-      {/* Modal for deadline crossed */}
       <Modal
         aria-labelledby="deadline-crossed-modal-title"
         aria-describedby="deadline-crossed-modal-description"
@@ -280,8 +279,7 @@ const CampaignDetails = () => {
               id="deadline-crossed-modal-description"
               sx={{ mt: 2 }}
             >
-              Unfortunately, the deadline for this campaign has passed. You can
-              no longer donate.
+              Unfortunately, the deadline for this campaign has passed. You can no longer donate.
             </Typography>
             <div className="flex justify-center mt-4">
               <Link to="/">
@@ -297,7 +295,7 @@ const CampaignDetails = () => {
         </Fade>
       </Modal>
 
-      {/* Modal for successful donation */}
+ 
       <Modal
         aria-labelledby="donation-success-modal-title"
         aria-describedby="donation-success-modal-description"
@@ -319,15 +317,14 @@ const CampaignDetails = () => {
               component="h2"
               className="text-center font-bold mb-4"
             >
-              Donation Successful
+              Donation Successful!
             </Typography>
             <Typography
               className="text-center"
               id="donation-success-modal-description"
               sx={{ mt: 2 }}
             >
-              Thank you for your donation! Your contribution will help the
-              campaign achieve its goal.
+              Thank you for your generous donation!
             </Typography>
             <div className="flex justify-center mt-4">
               <Link to="/">

@@ -4,6 +4,9 @@ import { useEffect ,useContext, useState } from "react";
 import { AuthContext } from './../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import Lottie from "lottie-react";
+import LoginAnimation from "../../loginAnimation.json";
+
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
@@ -62,11 +65,15 @@ const Login = () => {
     <div>
       <ToastContainer position="top-center" />
       <div
-        className="hero   min-h-screen flex items-center justify-center"
+        className="hero   min-h-screen flex items-center justify-center mt-20"
         data-aos="fade-up"
       >
-        <div className="hero-content flex-col  gap-6 w-full px-4 sm:px-8 md:px-16 lg:px-0">
-          <div className="text-center lg:text-left">
+        <Lottie loop={true} animationData={LoginAnimation}>
+        
+        </Lottie>
+        
+        <div className="hero-content flex-col  gap-6 w-full px-4 sm:px-8 md:px-16 lg:px-0 ">
+          <div className="text-center lg:text-left ">
             <h1 className="text-5xl font-bold">Login now!</h1>
           </div>
           <div className="card bg-base-100 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg shadow-2xl p-4 md:p-6 ">

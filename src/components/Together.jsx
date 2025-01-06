@@ -7,7 +7,7 @@ import Loading from './Loading';
 
 const Together = () => {
   const [campaigns, setCampaigns] = useState([]);
-
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -16,7 +16,6 @@ const Together = () => {
     Aos.init({ duration: 1000 });
   }, []);
 
-  
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
@@ -27,18 +26,15 @@ const Together = () => {
         console.error('Error fetching campaigns:', error);
       }
     };
-    if (!fetchCampaigns) return <p><Loading/></p>;
+    if (!fetchCampaigns) return <p><Loading /></p>;
     fetchCampaigns();
-    
   }, []);
 
   return (
-    
-    <div className="hero bg-together px-4 md:px-8 min-h-screen flex flex-col mb-10 mt-10" data-aos="fade-up">
-    
+    <div className="hero bg-gray-300 dark:bg-black px-4 md:px-8 min-h-screen flex flex-col" data-aos="fade-up">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h1 className="text-5xl font-bold text-black mt-10">Running Campaign</h1>
+          <h1 className="text-5xl font-bold text-black dark:text-white mt-10">Running Campaign</h1>
         </div>
       </div>
 
@@ -46,7 +42,7 @@ const Together = () => {
         {campaigns.slice(0,6).map((campaign) => (
           <div
             key={campaign._id}
-            className="card card-compact bg-Profile w-full sm:w-80 md:w-96 shadow-xl"
+            className="card card-compact bg-white dark:bg-gray-800 w-full sm:w-80 md:w-96 shadow-xl"
             data-aos="fade-up"
           >
             <figure>
@@ -57,18 +53,18 @@ const Together = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title text-center">{campaign.CampaignTitle}</h2>
-              <p>{campaign.description}</p>
+              <h2 className="card-title text-center dark:text-white">{campaign.CampaignTitle}</h2>
+              <p className="dark:text-white">{campaign.description}</p>
               <progress
                 className="progress w-56"
                 value={(campaign.MinimumDonationAmount) * 100}
                 max="200"
               ></progress>
-              <p>
-                Minmum Donation:{campaign.MinimumDonationAmount}$
+              <p className="dark:text-white">
+                Minmum Donation: {campaign.MinimumDonationAmount}$
               </p>
-              <p>Status: <span className='text-green-400'> Active</span> </p>
-              <Link to={`/campaigndetails/${campaign._id}`} className="btn">
+              <p className="dark:text-white">Status: <span className="text-green-400"> Active</span> </p>
+              <Link to={`/campaigndetails/${campaign._id}`} className="btn dark:bg-gray-600 dark:hover:bg-gray-500">
                 See More
               </Link>
             </div>
