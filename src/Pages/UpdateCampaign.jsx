@@ -80,8 +80,8 @@ const UpdateCampaign = () => {
     return (
         <div>
             <Navbar />
-            <div className="lg:w-3/4 mx-auto mb-10" data-aos="fade-up">
-                <div className="text-center p-10">
+            <div className="lg:w-3/4 mx-auto   mb-10 " data-aos="fade-up">
+                <div className="text-center p-10 mt-10">
                     <h1 className="text-5xl font-bold">Update Campaign</h1>
                 </div>
                 <div className="card bg-Profile w-full shrink-0 shadow-2xl">

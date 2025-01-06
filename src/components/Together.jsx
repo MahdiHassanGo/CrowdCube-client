@@ -34,12 +34,12 @@ const Together = () => {
     <div className="hero bg-gray-300 dark:bg-black px-4 md:px-8 min-h-screen flex flex-col" data-aos="fade-up">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h1 className="text-5xl font-bold text-black dark:text-white mt-10">Running Campaign</h1>
+          <h1 className="text-5xl font-bold text-black  dark:text-white mt-10">Running Campaign</h1>
         </div>
       </div>
 
       <div className="flex flex-col lg:flex-row flex-wrap justify-center gap-10 mt-10 pb-10">
-        {campaigns.slice(0,6).map((campaign) => (
+        {campaigns.slice(0, 6).map((campaign) => (
           <div
             key={campaign._id}
             className="card card-compact bg-white dark:bg-gray-800 w-full sm:w-80 md:w-96 shadow-xl"

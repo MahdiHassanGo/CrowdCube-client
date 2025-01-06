@@ -98,10 +98,10 @@ setTimeout(()=>{
                 <th></th>
                 <th></th>
 
-                <th className="p-2">Campaign Title</th>
-                <th className="p-2">Deadline</th>
-                <th className="p-2">Minimum Donation Amount</th>
-                <th className="p-2">Actions</th>
+                <th className="p-2 text-black dark:text-black">Campaign Title</th>
+                <th className="p-2 text-black dark:text-black">Deadline</th>
+                <th className="p-2 text-black dark:text-black">Minimum Donation Amount</th>
+                <th className="p-2 text-black dark:text-black">Actions</th>
               </tr>
             </thead>
             <tbody>

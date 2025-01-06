@@ -14,7 +14,8 @@ const ThemeToggle = () => {
 
     // Add or remove the dark class for Tailwind (second approach)
     if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.add('dark'); // for manual dark mode
+
     } else {
       document.documentElement.classList.remove("dark");
     }
