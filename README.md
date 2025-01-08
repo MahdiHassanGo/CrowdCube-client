@@ -23,3 +23,21 @@ CrowdCube is a platform designed to revolutionize investment by connecting busin
 - **Secure and Seamless Encryption to data**  
   Our website ensures that all data are safe and easy to manage for both parties.
 
+
+
+  ## Tech Stacks
+
+- **Reactjs**  
+
+
+- **NodeJs**  
+
+
+- **MongoDB**  
+
+
+- **Tailwind**  
+
+
+
+
