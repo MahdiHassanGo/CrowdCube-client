@@ -15,6 +15,7 @@ CrowdCube is a platform designed to transform investment by bridging the gap bet
 - **Add Campaign**  
   - Highlight business ideas and attract investors with compelling pitch pages.  
   - Include images, descriptions, and other details to enhance visibility.  
+![image](https://github.com/user-attachments/assets/c3609835-0cae-4a42-97ac-846d5d13b3f3)
 
 - **My Donations**  
   - Personalized dashboard for donors to track their contributions.  
