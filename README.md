@@ -1,6 +1,4 @@
-Here's your well-structured README file for **CrowdCube**:  
 
-```markdown
 # CrowdCube  
 Revolutionizing Investment by Connecting Businesses and Investors  
 
