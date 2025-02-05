@@ -8,6 +8,7 @@ Revolutionizing Investment by Connecting Businesses and Investors
 ## Overview  
 CrowdCube is a platform designed to transform investment by bridging the gap between businesses and investors. It provides an easy-to-use interface for businesses seeking funding and investors looking to support innovative projects. **CrowdCube empowers startups, entrepreneurs, and small businesses** by facilitating funding opportunities while offering investors a chance to be part of exciting ventures.  
 
+![image](https://github.com/user-attachments/assets/51576513-5d89-4ecf-9fe8-764625da021d)
 
 
 ## Key Features  
